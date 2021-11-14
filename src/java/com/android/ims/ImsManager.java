@@ -1386,6 +1386,14 @@ public class ImsManager {
         return true;
     }
 
+    public static void updateImsServiceConfig(Context context, int phoneId, boolean force) {
+        ImsManager mgr = ImsManager.getInstance(context, phoneId);
+        if (mgr != null) {
+            mgr.updateImsServiceConfig();
+        }
+        Rlog.e(TAG, "updateImsServiceConfig: ImsManager null, returning without update.");
+    }
+
     /**
      * Sync carrier config and user settings with ImsConfigImplBase implementation.
      *
